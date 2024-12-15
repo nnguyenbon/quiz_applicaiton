@@ -1,0 +1,13 @@
+2
+Q: Which is the smallest country in the world by area?
+C: Monaco
+C: Vatican City
+C: San Marino
+C: Liechtenstein
+An: 2
+Q: What causes the seasons on Earth?
+C: The distance from the Sun
+C: The Earth's rotation
+C: The shape of the Earth's orbit
+C: The tilt of the Earth's axis
+An: 4

@@ -15,6 +15,8 @@ public class MainFrame extends JFrame{
     final int WINDOW_WIDTH = 800;
     final int WINDOW_HEIGHT = 800;
     private JPanel mainPanel;
+    private QuizController quizController;
+    private QuizPanel quizPanel;
 
     public MainFrame() {
         this.setTitle("Quiz Application");

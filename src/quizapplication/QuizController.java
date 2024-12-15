@@ -3,10 +3,10 @@
  */
 package quizapplication;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -14,37 +14,34 @@ import java.util.List;
  */
 public class QuizController {
     private Quiz quiz;
+    private List<Question> questions;
+    private List<Answer> answers;
+    public ArrayList<String> inputLine = new ArrayList<>();
 
     public QuizController() {
-        this.quiz = new Quiz(); 
+//        this.quiz = new Quiz(); 
     }
     
     public void loadQuestionFromFile(String fileName) {
-        try (BufferedReader br = new BufferedReader(new FileReader("quiz.txt"))) {
-            int questionCount = Integer.parseInt(br.readLine().trim());
-        
-        for (int i = 0; i < questionCount; i++) {
-            // Đọc nội dung câu hỏi
-            String line = br.readLine();
-            if (line.startsWith("Q:")) {
-                String questionText = line.substring(3).trim();
-                String[] answers = new String[4];
-                int correctAnswerIndex = -1;
-
-                // Đọc 4 đáp án
-                for (int j = 0; j < 4; j++) {
-                    line = br.readLine();
-                    if (line.startsWith("C:")) {
-                        answers[j] = line.substring(3).trim();
-                    }
-                }
-
-                // Đọc đáp án đúng
-                line = br.readLine();
-                if (line.startsWith("An:")) {
-                    correctAnswerIndex = Integer.parseInt(line.substring(4).trim()) - 1;
-                }
+        try (Scanner sc = new Scanner(new File(fileName))) {
+            int numQuestions = Integer.parseInt(sc.nextLine().trim());
+            
+            for (int i = 0; i < numQuestions; i++) {
+            // Đọc câu hỏi
+            String questionText = sc.nextLine().substring(3).trim(); // Bỏ "Q:"
+            inputLine.add(questionText);
+            
+            // Đọc 4 đáp án
+            String[] choices = new String[4];
+            for (int j = 0; j < 4; j++) {
+                choices[j] = sc.nextLine().substring(3).trim(); // Bỏ "C:"
+                inputLine.add(choices[j]);
             }
+            
+            int correctAnswerIndex = Integer.parseInt(sc.nextLine().substring(4).trim()) - 1;
+            inputLine.add(String.format("%d", correctAnswerIndex));
+            
+            Question question = new Question(questionText, correctAnswerIndex);
         }
         } catch (Exception e) {
             e.printStackTrace();

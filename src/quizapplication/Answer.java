@@ -10,5 +10,27 @@ package quizapplication;
  * @author Nguyen Kim Bao Nguyen - CE191239
  */
 public class Answer {
-    private String text;
+    private String answerText; 
+    private boolean isCorrect;
+
+    Answer(String answerText, boolean isCorrect) {
+        this.answerText = answerText;
+        this.isCorrect = isCorrect;
+    }
+
+    public String getAnswerText() {
+        return answerText;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
+
+    public boolean isIsCorrect() {
+        return isCorrect;
+    }
+
+    public void setIsCorrect(boolean isCorrect) {
+        this.isCorrect = isCorrect;
+    }
 }

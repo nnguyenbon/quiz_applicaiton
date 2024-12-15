@@ -15,7 +15,12 @@ public class QuizApplication {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MainFrame main = new MainFrame();
+//        MainFrame main = new MainFrame();
+
+        //Test doc file
+        QuizController q = new QuizController();
+        q.loadQuestionFromFile("quiz.txt");
+        System.out.println(q.inputLine);
     }
     
 }

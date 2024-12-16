@@ -27,14 +27,14 @@ public class QuizController {
             int numQuestions = Integer.parseInt(sc.nextLine().trim());
             
             for (int i = 0; i < numQuestions; i++) {
-            // Đọc câu hỏi
-            String questionText = sc.nextLine().substring(3).trim(); // Bỏ "Q:"
+            //Doc cau hoi roi bo Q:
+            String questionText = sc.nextLine().substring(3).trim(); 
             inputLine.add(questionText);
             
-            // Đọc 4 đáp án
+            //Doc 4 dap an
             String[] choices = new String[4];
             for (int j = 0; j < 4; j++) {
-                choices[j] = sc.nextLine().substring(3).trim(); // Bỏ "C:"
+                choices[j] = sc.nextLine().substring(3).trim(); //Bo C:
                 inputLine.add(choices[j]);
             }
             

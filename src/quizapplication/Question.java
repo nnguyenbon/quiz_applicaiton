@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Question {
     private List<Answer> answers;
-    private int correctAnswerIndex;
+    private final int correctAnswerIndex;
     private int score;
     private String questionText;
 

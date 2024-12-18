@@ -41,4 +41,14 @@ public class Question {
     public void addAnswer(String answerText, boolean isCorrect) {
         answers.add(new Answer(answerText, isCorrect));
     }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+    
+    
 }
